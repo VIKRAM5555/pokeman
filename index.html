@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POKEMAN</title>
+</head>
+<div id="container"></div>
+<body>
+    
+    <script>
+     async function pokeman (){
+         try{
+             var data= await fetch("https://pokeapi.co/api/v2/pokemon?limit=5")
+             var data1= await data.json();
+             console.log(data1)
+             var e=await data1.result.forEach(element => {
+                 var ur=element.url
+                 async function character (){
+             var data2= await fetch(ur)
+             var data3= await data2.json();
+             console.log(data3)
+                }
+             
+             
+         });
+
+             var container= document.getElementById("container")
+             var card=document.createElement("card")
+             var line1= document.createElement("line1")
+
+
+             line1.setAttribute("class","pokoman")
+             var line2= document.createElement("line2")
+             line2.setAttribute("class","ability")
+             var line3= document.createElement("line3")
+             line3.setAttribute("class","moves")
+             var line4= document.createElement("line4")
+             line4.setAttribute("class","weight")
+
+         
+
+              
+            
+
+             card.setAttribute("class", "game")
+                    container.appendChild(card)
+                    card.appendChild(line1)
+                    card.appendChild(line2)
+                    card.appendChild(line3)
+             
+
+         } catch (err) {
+             console.log(err)
+         }}
+        
+     pokeman()
+    </script>
+</body>
+</html>
